@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/DABronskikh/go-lesson-11/cmd/bank/app"
 	"github.com/DABronskikh/go-lesson-11/pkg/card"
+	"log"
 	"net"
 	"net/http"
 	"os"
@@ -12,17 +13,21 @@ const defaultPort = "9999"
 const defaultHost = "0.0.0.0"
 
 func main() {
-	port, ok := os.LookupEnv("APP_PORT")
+	port, ok := os.LookupEnv("PORT")
 	if !ok {
 		port = defaultPort
 	}
 
-	host, ok := os.LookupEnv("APP_HOST")
+	host, ok := os.LookupEnv("HOST")
 	if !ok {
 		host = defaultHost
 	}
 
+	log.Println(host)
+	log.Println(port)
+
 	if err := execute(net.JoinHostPort(host, port)); err != nil {
+		log.Println(err)
 		os.Exit(1)
 	}
 }
