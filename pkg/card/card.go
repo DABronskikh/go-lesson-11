@@ -85,7 +85,9 @@ func getSystemCard(systemCard string) error {
 }
 
 func (s *Service) getNumber() int64 {
+	s.mu.RLock()
 	s.number += 1
+	s.mu.RUnlock()
 	return s.number
 }
 
