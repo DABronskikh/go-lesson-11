@@ -24,6 +24,7 @@ type Card struct {
 type Service struct {
 	mu     sync.RWMutex
 	cards  []*Card
+	mun    sync.Mutex
 	number int64
 }
 
@@ -58,9 +59,9 @@ func (s *Service) Add(userId string, typeCard string, systemCard string) (*Card,
 		Type:   typeCard,
 		System: systemCard,
 	}
-	s.mu.RLock()
+	s.mu.Lock()
+	defer s.mu.Unlock()
 	s.cards = append(s.cards, card)
-	s.mu.RUnlock()
 	return card, nil
 }
 
@@ -85,9 +86,9 @@ func getSystemCard(systemCard string) error {
 }
 
 func (s *Service) getNumber() int64 {
-	s.mu.RLock()
+	s.mun.Lock()
+	defer s.mun.Unlock()
 	s.number += 1
-	s.mu.RUnlock()
 	return s.number
 }
 
