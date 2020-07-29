@@ -43,5 +43,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: DABronskikh/go-lesson-11/bank
+          repository: dabronskikh/go-lesson-11/bank
           tag_with_ref: true
