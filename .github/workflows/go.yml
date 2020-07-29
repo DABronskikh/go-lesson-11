@@ -45,6 +45,3 @@ jobs:
           registry: docker.pkg.github.com
           repository: DABronskikh/go-lesson-11/bank
           tag_with_ref: true
-
-      - name: Build from Docker multistage
-        run: docker build -f Dockerfile.multistage -t multibank .
