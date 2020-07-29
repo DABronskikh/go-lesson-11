@@ -31,12 +31,8 @@ jobs:
       - name: Test
         run: go test -v ./...
 
-      # добавили всё, что ниже
-
       - name: Build binary for docker image
         run: go build -v -o bank ./cmd/bank
-        env:
-          CGO_ENABLED: 0
 
       - name: List
         run: ls -la
@@ -49,3 +45,6 @@ jobs:
           registry: docker.pkg.github.com
           repository: DABronskikh/go-lesson-11/bank
           tag_with_ref: true
+
+      - name: Build from Docker multistage
+        run: docker build -f Dockerfile.multistage -t multibank .
