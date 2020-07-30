@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/DABronskikh/go-lesson-11/cmd/bank/app"
+	"github.com/DABronskikh/go-lesson-11/pkg/app"
 	"github.com/DABronskikh/go-lesson-11/pkg/card"
 	"log"
 	"net"

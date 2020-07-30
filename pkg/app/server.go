@@ -3,7 +3,7 @@ package app
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/DABronskikh/go-lesson-11/cmd/bank/app/dto"
+	"github.com/DABronskikh/go-lesson-11/pkg/app/dto"
 	"github.com/DABronskikh/go-lesson-11/pkg/card"
 	"io/ioutil"
 	"log"
