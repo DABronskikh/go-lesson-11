@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
-ADD bank /
+ADD bank /app/
 
-ENTRYPOINT ["/main"]
+ENTRYPOINT ["/app/main"]
 
 EXPOSE 9999
