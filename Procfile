@@ -1,1 +1,1 @@
-web: bin/bank
+web: bin/main
